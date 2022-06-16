@@ -1,6 +1,16 @@
-type ExampleEntity @entity {
+type ConnectionEntity @entity {
   id: ID!
   count: BigInt!
-  _user: Bytes! # address
-  _connectedTypeId: BigInt! # uint256
+  _user: Bytes # address
+  _connectedTypeId: BigInt # uint256
+  _connectedUserIdHash: Bytes # hash
+}
+
+type EndorseEntity @entity {
+  id: ID!
+  count: BigInt!
+  _from: Bytes # address
+  _to: Bytes # address
+  _value: BigInt # uint256
+  _transactionId: String # string
 }
