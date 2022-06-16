@@ -1,0 +1,59 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: UTT
+    network: mumbai
+    source:
+      address: "0x155A7ec2C100108921855E612e98A50a13118777"
+      abi: UTT
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AddConnection
+        - Approval
+        - ChainlinkCancelled
+        - ChainlinkFulfilled
+        - ChainlinkRequested
+        - Endorse
+        - OwnershipTransferred
+        - Paused
+        - RemoveConnection
+        - RewardPreviousEndorserLevel1
+        - RewardPreviousEndorserLevel2
+        - Transfer
+        - Unpaused
+      abis:
+        - name: UTT
+          file: ./abis/UTT.json
+      eventHandlers:
+        - event: AddConnection(indexed address,indexed uint256,indexed bytes32)
+          handler: handleAddConnection
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: ChainlinkCancelled(indexed bytes32)
+          handler: handleChainlinkCancelled
+        - event: ChainlinkFulfilled(indexed bytes32)
+          handler: handleChainlinkFulfilled
+        - event: ChainlinkRequested(indexed bytes32)
+          handler: handleChainlinkRequested
+        - event: Endorse(indexed address,indexed address,uint256,string)
+          handler: handleEndorse
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: RemoveConnection(indexed address,indexed uint256,indexed bytes32)
+          handler: handleRemoveConnection
+        - event: RewardPreviousEndorserLevel1(address,uint256)
+          handler: handleRewardPreviousEndorserLevel1
+        - event: RewardPreviousEndorserLevel2(address,uint256)
+          handler: handleRewardPreviousEndorserLevel2
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/utt.ts
