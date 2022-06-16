@@ -4,10 +4,10 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ utt/subgraph",
-    "create-local": "graph create --node http://localhost:8020/ utt/subgraph",
-    "remove-local": "graph remove --node http://localhost:8020/ utt/subgraph",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 utt/subgraph"
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ utu-protocol/utt-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ utu-protocol/utt-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ utu-protocol/utt-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 utu-protocol/utt-subgraph"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.30.4",
